@@ -20,10 +20,10 @@ func main() {
 	mux.Handle("/", handler)
 
 	srv := http.Server{
-		Addr:    ":8080",
+		Addr:    ":8090",
 		Handler: mux,
 	}
-	log.Printf("listening on port 8080")
+	log.Printf("listening on port 8090")
 	go func() {
 		log.Print(srv.ListenAndServe())
 	}()
@@ -36,5 +36,5 @@ func main() {
 	ctx := context.Background()
 	srv.Shutdown(ctx)
 	log.Println("shut down completed")
-	log.Fatal(http.ListenAndServe(":8080", mux))
+	log.Fatal(http.ListenAndServe(":8090", mux))
 }
